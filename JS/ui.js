@@ -13,7 +13,7 @@ export function renderTareas(tareas, onUpdate) {
         btnToogle.textContent = tarea.completada ? 'Deshacer' : 'Completar'
         btnToogle.addEventListener("click", () => {
             toogleTarea(tarea)
-            guardarTareas(tareas)
+            guardarTarea(tarea.texto)
             onUpdate()
         })
 
@@ -21,7 +21,7 @@ export function renderTareas(tareas, onUpdate) {
         btnEliminar.textContent = '🗑️'
         btnEliminar.addEventListener("click", () => {
             const nuevasTareas = eliminarTarea(tareas, tarea.id)
-            guardarTareas(nuevasTareas)
+            eliminarTarea(tarea.id)
             onUpdate(nuevasTareas)
         })
 
