@@ -18,7 +18,7 @@ form.addEventListener("submit", (e) => {
     if (!texto) return
     const nuevaTarea = crearTarea(texto)
     tareas.push(nuevaTarea)
-    guardarTareas(tareas)
+    guardarTarea(texto)
     input.value = ''
     actualizarVista()
 })
