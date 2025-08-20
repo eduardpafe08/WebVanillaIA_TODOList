@@ -11,7 +11,7 @@ function actualizarVista(nuevasTareas = tareas) {
     renderTareas(tareas, actualizarVista)
 }
 
-form.addEventListener("submit", e = () => {
+form.addEventListener("submit", (e) => {
     e.preventDefault()
 
     const texto = input.ariaValueMax.trim()
