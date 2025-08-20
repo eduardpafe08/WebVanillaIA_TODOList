@@ -14,7 +14,7 @@ function actualizarVista(nuevasTareas = tareas) {
 form.addEventListener("submit", (e) => {
     e.preventDefault()
 
-    const texto = input.ariaValueMax.trim()
+    const texto = input.value.trim()
     if (!texto) return
     const nuevaTarea = crearTarea(texto)
     tareas.push(nuevaTarea)
