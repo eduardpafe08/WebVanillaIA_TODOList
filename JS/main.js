@@ -3,8 +3,9 @@ import { renderTareas } from "./ui.js";
 
 const form = document.getElementById("formTarea")
 const input = document.getElementById("inputTarea")
-
+console.log(tareas)
 let tareas = cargarTareas()
+console.log(tareas)
 
 function actualizarVista(nuevasTareas = tareas) {
     tareas = nuevasTareas
