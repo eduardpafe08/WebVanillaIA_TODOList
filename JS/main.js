@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
 
     const texto = input.value.trim()
     if (!texto) return
-    const nuevaTarea = crearTarea(texto)
+    const nuevaTarea = guardarTarea(texto)
     tareas.push(nuevaTarea)
     guardarTarea(texto)
     input.value = ''
