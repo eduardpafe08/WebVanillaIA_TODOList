@@ -3,7 +3,7 @@ import { renderTareas } from "./ui.js";
 
 const form = document.getElementById("formTarea")
 const input = document.getElementById("inputTarea")
-let tareas = cargarTareas()
+let tareas = JSON.parse(cargarTareas())
 console.log(tareas)
 
 function actualizarVista(nuevasTareas = tareas) {
