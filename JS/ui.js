@@ -1,4 +1,4 @@
-import { toogleTarea, eliminarTarea, guardarTareas } from "./logicaTareas.js";
+import { toogleTarea, eliminarTarea, guardarTarea } from "./logicaTareas.js";
 
 export function renderTareas(tareas, onUpdate) {
     const lista = document.getElementById('listaTareas')
