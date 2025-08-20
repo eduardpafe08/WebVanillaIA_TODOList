@@ -1,5 +1,5 @@
-import { cargarTareas, guardarTareas, crearTarea } from "./logicaTareas";
-import { renderTareas } from "./ui";
+import { cargarTareas, guardarTareas, crearTarea } from "./logicaTareas.js";
+import { renderTareas } from "./ui.js";
 
 const form = document.getElementById("formTarea")
 const input = document.getElementById("inputTarea")
