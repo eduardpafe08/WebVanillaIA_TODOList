@@ -5,7 +5,7 @@ export function renderTareas(tareas, onUpdate) {
     lista.innerHTML = ''
 
     tareas.forEach(tarea => {
-        const li = document.createElement('li')        
+        const li = document.createElement('li')
         li.textContent = tarea.texto
         li.className = tarea.completada ? 'completada' : ''
 
@@ -13,15 +13,23 @@ export function renderTareas(tareas, onUpdate) {
         btnToogle.textContent = tarea.completada ? 'Deshacer' : 'Completar'
         btnToogle.addEventListener("click", () => {
             toogleTarea(tarea)
-            guardarTarea(tarea.texto)
-            onUpdate()
+            const nuevasTareas = tareas.map(t => {
+                if (t.id === tarea.id){
+                    return {
+                        ...t,
+                        completada: !t.completada
+                    }
+                }
+                return t
+            })
+            onUpdate(nuevasTareas)
         })
 
         const btnEliminar = document.createElement('button')
         btnEliminar.textContent = '🗑️'
-        btnEliminar.addEventListener("click", () => {
-            const nuevasTareas = eliminarTarea(tareas, tarea.id)
-            eliminarTarea(tarea.id)
+        btnEliminar.addEventListener("click", async () => {
+            await eliminarTarea(tarea.id)
+            const nuevasTareas = tareas.filter(t => t.id !== tarea.id)
             onUpdate(nuevasTareas)
         })
 

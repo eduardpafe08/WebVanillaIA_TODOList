@@ -10,8 +10,12 @@ router.get('/tareas', async (req, res) => {
 
 router.post('/tareas', async (req, res) => {
     const { texto } = req.body
-    await pool.query('INSERT INTO tareas (texto, completada) VALUES (?, ?)', [texto, false])
-    res.sendStatus(201)
+    const [result] = await pool.query('INSERT INTO tareas (texto, completada) VALUES (?, ?)', [texto, false])
+    res.status(201).json({
+        id: result.id,
+        texto,
+        completada: false
+    })
 })
 
 router.put('/tareas/:id', async (req, res) => {

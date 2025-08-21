@@ -1,4 +1,4 @@
-const API_URL = 'http://192.168.1.119:3000/api/tareas'
+const API_URL = 'http://localhost:3000/api/tareas'
 
 // Recuperar tareas de localStorage
 export async function cargarTareas() {
@@ -14,11 +14,13 @@ export function guardarTareas(tareas) {
 }
 */
 export async function guardarTarea(texto) {
-    await fetch(API_URL, {
+    const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ texto })
     })
+    const data = await res.json()
+    return data
 }
 
 // Crear una nueva tarea
